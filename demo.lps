@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="11"/>
+    <BuildModes Active="Default"/>
+    <Units Count="21">
+      <Unit0>
+        <Filename Value="demo.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="107"/>
+        <CursorPos X="53" Y="116"/>
+        <UsageCount Value="35"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="DSLCompiler.Parser.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="556"/>
+        <CursorPos X="3" Y="581"/>
+        <UsageCount Value="35"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="DSLCompiler.AST.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="647"/>
+        <CursorPos X="3" Y="672"/>
+        <UsageCount Value="35"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="DSLCompiler.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="253"/>
+        <CursorPos X="21" Y="278"/>
+        <UsageCount Value="35"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="DSLCompiler.Compiler.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="410"/>
+        <CursorPos X="12" Y="420"/>
+        <UsageCount Value="35"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="DSLCompiler.Runnable.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="35"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="DSLCompiler.ErrorInfo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="-1"/>
+        <CursorPos X="-1" Y="-1"/>
+        <UsageCount Value="35"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="DSLCompiler.Base.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="15"/>
+        <CursorPos X="14" Y="40"/>
+        <UsageCount Value="35"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="DSLCompiler.Tokenizer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="250"/>
+        <CursorPos X="15" Y="275"/>
+        <UsageCount Value="35"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="DSLCompiler.Compiler.Dump.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="244"/>
+        <CursorPos Y="269"/>
+        <UsageCount Value="35"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="DSLCompiler.Compiler.Codegen.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="134"/>
+        <CursorPos X="41" Y="159"/>
+        <UsageCount Value="35"/>
+        <Loaded Value="True"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="DSLCompiler.Interpreter.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="313"/>
+        <CursorPos Y="338"/>
+        <UsageCount Value="35"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="SimpleDSLCompiler.Runnable.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="6"/>
+        <UsageCount Value="9"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="C:\Linux\lazarus\fpc\3.2.0\source\packages\rtl-generics\src\generics.collections.pas"/>
+        <UnitName Value="Generics.Collections"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="15"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="syntactic.lpr"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="11"/>
+        <UsageCount Value="9"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="DSiWin32.pas"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="9"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="C:\Linux\lazarus\fpc\3.2.0\source\rtl\win\wininc\func.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="985"/>
+        <CursorPos X="10" Y="995"/>
+        <UsageCount Value="10"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="C:\Linux\lazarus\fpc\3.2.0\source\packages\fcl-base\src\custapp.pp"/>
+        <UnitName Value="CustApp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="84"/>
+        <CursorPos Y="84"/>
+        <UsageCount Value="10"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="E:\Opt\lazarus\fpc\3.2.0\source\rtl\inc\objpash.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="296"/>
+        <CursorPos X="22" Y="309"/>
+        <UsageCount Value="10"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="E:\Opt\lazarus\fpc\3.2.0\source\rtl\inc\objpas.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1072"/>
+        <CursorPos X="10" Y="1075"/>
+        <UsageCount Value="10"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="DSLCompiler.System.pas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="77"/>
+        <CursorPos X="40" Y="101"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit20>
+    </Units>
+    <JumpHistory Count="21" HistoryIndex="20">
+      <Position1>
+        <Filename Value="DSLCompiler.Compiler.Codegen.pas"/>
+        <Caret Line="406" Column="12" TopLine="394"/>
+      </Position1>
+      <Position2>
+        <Filename Value="DSLCompiler.Compiler.Codegen.pas"/>
+      </Position2>
+      <Position3>
+        <Filename Value="DSLCompiler.Compiler.Codegen.pas"/>
+        <Caret Line="173" Column="34" TopLine="161"/>
+      </Position3>
+      <Position4>
+        <Filename Value="demo.lpr"/>
+        <Caret Line="129" Column="14" TopLine="121"/>
+      </Position4>
+      <Position5>
+        <Filename Value="demo.lpr"/>
+        <Caret Line="12" Column="17"/>
+      </Position5>
+      <Position6>
+        <Filename Value="demo.lpr"/>
+        <Caret Line="11" Column="5"/>
+      </Position6>
+      <Position7>
+        <Filename Value="DSLCompiler.Compiler.Codegen.pas"/>
+        <Caret Line="406" Column="3" TopLine="390"/>
+      </Position7>
+      <Position8>
+        <Filename Value="demo.lpr"/>
+        <Caret Line="116" Column="37" TopLine="110"/>
+      </Position8>
+      <Position9>
+        <Filename Value="DSLCompiler.Compiler.Codegen.pas"/>
+        <Caret Line="7" Column="5"/>
+      </Position9>
+      <Position10>
+        <Filename Value="DSLCompiler.Compiler.Codegen.pas"/>
+        <Caret Line="231" Column="32" TopLine="216"/>
+      </Position10>
+      <Position11>
+        <Filename Value="DSLCompiler.Compiler.Codegen.pas"/>
+        <Caret Line="397" Column="37" TopLine="372"/>
+      </Position11>
+      <Position12>
+        <Filename Value="DSLCompiler.Compiler.Codegen.pas"/>
+        <Caret Line="67" Column="35" TopLine="50"/>
+      </Position12>
+      <Position13>
+        <Filename Value="DSLCompiler.Compiler.Codegen.pas"/>
+        <Caret Line="159" Column="41" TopLine="134"/>
+      </Position13>
+      <Position14>
+        <Filename Value="DSLCompiler.System.pas"/>
+        <Caret Line="33" Column="38" TopLine="8"/>
+      </Position14>
+      <Position15>
+        <Filename Value="DSLCompiler.System.pas"/>
+        <Caret Line="57" Column="3" TopLine="32"/>
+      </Position15>
+      <Position16>
+        <Filename Value="DSLCompiler.System.pas"/>
+        <Caret Line="88" Column="5" TopLine="64"/>
+      </Position16>
+      <Position17>
+        <Filename Value="DSLCompiler.System.pas"/>
+        <Caret Line="43" Column="15" TopLine="36"/>
+      </Position17>
+      <Position18>
+        <Filename Value="DSLCompiler.System.pas"/>
+        <Caret Line="109" Column="35" TopLine="88"/>
+      </Position18>
+      <Position19>
+        <Filename Value="DSLCompiler.System.pas"/>
+        <Caret Line="33" TopLine="8"/>
+      </Position19>
+      <Position20>
+        <Filename Value="DSLCompiler.System.pas"/>
+        <Caret Line="71" Column="43" TopLine="58"/>
+      </Position20>
+      <Position21>
+        <Filename Value="DSLCompiler.System.pas"/>
+        <Caret Line="124" Column="35" TopLine="101"/>
+      </Position21>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
