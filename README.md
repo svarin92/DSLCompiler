@@ -1,2 +1,2 @@
 # DSLCompiler
-Simple DSLCompiler (github/gabr42) for Lazarus IDE
+Simple DSLCompiler (github.com/gabr42) for Lazarus IDE
