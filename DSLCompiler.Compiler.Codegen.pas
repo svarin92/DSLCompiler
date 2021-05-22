@@ -35,9 +35,9 @@ type
   TFuncCallParams = specialize TArray<TExpression>;
 
   TCodegenAdd = class(TDSLObject)
-  public
+  strict private
     _Expr1, _Expr2: TExpression;
-  //
+  public
     constructor Create(expr1, expr2: TExpression);
     function Process(var context: TContext): Integer;
   //
@@ -45,9 +45,9 @@ type
   end; { TCodegenAdd }
 
   TCodegenBlock = class(TDSLObject)
-  public
+  strict private
     _Statements: TStatements;
-  //
+  public
     constructor Create(statements: TStatements);
     procedure Process(var context: TContext);
   //
@@ -55,9 +55,9 @@ type
   end; { TCodegenBlock }
 
   TCodegenConstant = class(TDSLObject)
-  public
+  strict private
     _Value: Integer;
-  //
+  public
     constructor Create(value: Integer);
     function Process(var context: TContext): Integer;
   //
@@ -65,10 +65,10 @@ type
   end; { TCodegenConstant }
 
   TCodegenFunctionCall = class(TDSLObject)
-  public
+  strict private
     _FuncIndex: Integer;
     _Params: TFuncCallParams;
-  //
+  public
     constructor Create(
       funcIndex: Integer;
       params: TFuncCallParams
@@ -82,10 +82,10 @@ type
   end; { TCodegenFunctionCall }
 
   TCodegenIfStatement = class(TDSLObject)
-  public
+  strict private
     _Condition: TExpression;
     _ThenBlock, _ElseBlock: TStatement;
-  //
+  public
     constructor Create(
       condition: TExpression;
       thenBlock, elseBlock: TStatement
@@ -99,9 +99,9 @@ type
   end; { TCodegenIfStatement }
 
   TCodegenIsLess = class(TDSLObject)
-  public
+  strict private
     _Expr1, _Expr2: TExpression;
-  //
+  public
     constructor Create(expr1, expr2: TExpression);
     function Process(var context: TContext): Integer;
   //
@@ -109,9 +109,9 @@ type
   end; { TCodegenIsLess }
 
   TCodegenReturnStatement = class(TDSLObject)
-  public
+  strict private
     _Expression: TExpression;
-  //
+  public
     constructor Create(expression: TExpression);
     procedure Process(var context: TContext);
   //
@@ -119,9 +119,9 @@ type
   end; { TCodegenReturnStatement }
 
   TCodegenSubtract = class(TDSLObject)
-  public
+  strict private
     _Expr1, _Expr2: TExpression;
-  //
+  public
     constructor Create(expr1, expr2: TExpression);
     function Process(var context: TContext): Integer;
   //
@@ -129,9 +129,9 @@ type
   end; { TCodegenSubtract }
 
   TCodegenVariable = class(TDSLObject)
-  public
+  strict private
     _VarIndex: Integer;
-  //
+  public
     constructor Create(varIndex: Integer);
     function Process(var context: TContext): Integer;
   //
@@ -139,9 +139,9 @@ type
   end; { TCodegenVariable }
 
   TCodegenFunction = class(TDSLObject)
-  public
+  strict private
     _Block: TStatement;
-  //
+  public
     constructor Create(block: TStatement);
     function Process(
       execContext: PExecContext;
