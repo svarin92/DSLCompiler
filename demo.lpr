@@ -24,6 +24,7 @@ uses
   DSLCompiler.Interpreter in 'DSLCompiler.Interpreter.pas';
 
 const
+
   CMultiProcCode =
     'fib(i) {                          '#13#10 +
     '  if i < 3 {                      '#13#10 +
@@ -53,10 +54,11 @@ const
 { DSiWin32 }
 
 threadvar
+
   GLastTimeGetTime: DWORD;
   GTimeGetTimeBase: Int64;
 
-{:64-bit extension of MM timeGetTime. Time units are milliseconds.
+{: 64-bit extension of MM timeGetTime. Time units are milliseconds.
 @author  gabr
 @since   2007-11-26
 }
@@ -73,7 +75,7 @@ begin
   Result := Result + GTimeGetTimeBase;
 end; { DSiTimeGetTime64 }
 
-{:Returns time elapsed since startTime, which must be a result of
+{: Returns time elapsed since startTime, which must be a result of
   the DSiTimeGetTime64.
 }
 function DSiElapsedTime64(startTime: Int64): Int64;
@@ -84,6 +86,7 @@ end; { DSiElapsedTime64 }
 { Demo }
 
 var
+
   compiler   : ICompiler;
   exec       : IProgram;
   interpreter: IProgram;
@@ -119,7 +122,7 @@ begin
       FreeAndNil(sl);
     end;
 
-    Writeln('----- Recognition and Computation -----' + #13#10);
+    Writeln('----- Syntactic Recognition and Computation -----' + #13#10);
 
     compiler := CreateCompiler;
     if
