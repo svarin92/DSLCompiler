@@ -8,8 +8,9 @@
       <Unit0>
         <Filename Value="demo.lpr"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="107"/>
-        <CursorPos X="53" Y="116"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="157"/>
+        <CursorPos X="38" Y="182"/>
         <UsageCount Value="35"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -91,7 +92,6 @@
       <Unit10>
         <Filename Value="DSLCompiler.Compiler.Codegen.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="27"/>
         <CursorPos Y="27"/>
@@ -167,7 +167,7 @@
         <Loaded Value="True"/>
       </Unit20>
     </Units>
-    <JumpHistory Count="23" HistoryIndex="22">
+    <JumpHistory Count="24" HistoryIndex="23">
       <Position1>
         <Filename Value="DSLCompiler.Compiler.Codegen.pas"/>
         <Caret Line="406" Column="12" TopLine="394"/>
@@ -259,6 +259,10 @@
         <Filename Value="DSLCompiler.Compiler.Codegen.pas"/>
         <Caret Line="385" Column="11" TopLine="372"/>
       </Position23>
+      <Position24>
+        <Filename Value="demo.lpr"/>
+        <Caret Line="117" Column="29" TopLine="107"/>
+      </Position24>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
