@@ -4,7 +4,7 @@ Some small adaptations and enhancements to the Primož Gabrijelčič compiler - 
 A must See:
 
 * Writing a Simple DSL Compiler with Delphi  - **[Introduction and so on](https://www.thedelphigeek.com/2017/08/writing-simple-dsl-compiler-with-delphi.html)**. The Delphi Geek, gabr42, 2017
-* SimpleDSLCompiler, A Personal Experiment - **[Not so trivial](https://github.com/gabr42/SimpleDSLCompiler)**. Github, gabr42, 2017
+* SimpleDSLCompiler, A Personal Experiment - **[Not so simple](https://github.com/gabr42/SimpleDSLCompiler)**. Github, gabr42, 2017
 
 ***
 
@@ -61,5 +61,4 @@ fib(7) (compiled) = 13
 Native: 832040 in 0 ms
 Compiled: 832040 in 344 ms
 Interpreted: 832040 in 2312 ms
->
 ```
