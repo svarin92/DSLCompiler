@@ -16,11 +16,17 @@ type
     {$ENDIF}
   protected
     {$IFDEF FPC_HAS_CONSTREF}
-      function QueryInterface(constref IID: TGuid; out obj): LongInt; {$IFDEF WINDOWS}stdcall{$ELSE}cdecl{$ENDIF};
+      function QueryInterface(
+        constref IID: TGuid; 
+        out obj
+        ): LongInt; {$IFDEF WINDOWS}stdcall{$ELSE}cdecl{$ENDIF};
       function _AddRef: LongInt; {$IFDEF WINDOWS}stdcall{$ELSE}cdecl{$ENDIF};
       function _Release: LongInt; {$IFDEF WINDOWS}stdcall{$ELSE}cdecl{$ENDIF};
     {$ELSE}
-      function QueryInterface(const IID: tguid; out obj): longint; stdcall;
+      function QueryInterface(
+        const IID: tguid; 
+        out obj
+        ): longint; stdcall;
       function _AddRef: longint; stdcall;
       function _Release: longint; stdcall;
     {$ENDIF}
@@ -43,9 +49,15 @@ uses
 {$ENDIF}
 
 {$IFDEF FPC_HAS_CONSTREF}
-function TDSLObject.QueryInterface(constref IID: TGuid; out obj): LongInt; {$IFDEF WINDOWS}stdcall{$ELSE}cdecl{$ENDIF};
+function TDSLObject.QueryInterface(
+  constref IID: TGuid; 
+  out obj
+  ): LongInt; {$IFDEF WINDOWS}stdcall{$ELSE}cdecl{$ENDIF};
 {$ELSE}
-function TDSLObject.QueryInterface(const IID: tguid; out obj): longint; stdcall;
+function TDSLObject.QueryInterface(
+  const IID: tguid; 
+  out obj
+  ): longint; stdcall;
 {$ENDIF}
  begin
   if
