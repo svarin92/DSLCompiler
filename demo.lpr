@@ -4,6 +4,7 @@ program demo;
 
 uses
 
+  // rtl, fcl, lcl
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
   {$ENDIF}{$ENDIF}
@@ -59,8 +60,8 @@ threadvar
   GTimeGetTimeBase: Int64;
 
 {: 64-bit extension of MM timeGetTime. Time units are milliseconds.
-@author  gabr
-@since   2007-11-26
+   @author  gabr
+   @since   2007-11-26
 }
 function DSiTimeGetTime64: Int64;
 begin
@@ -76,8 +77,7 @@ begin
 end; { DSiTimeGetTime64 }
 
 {: Returns time elapsed since startTime, which must be a result of
-  the DSiTimeGetTime64.
-}
+   the DSiTimeGetTime64. }
 function DSiElapsedTime64(startTime: Int64): Int64;
 begin
   Result := DSiTimeGetTime64 - startTime;
@@ -125,12 +125,14 @@ begin
     Writeln('----- Syntactic Recognition and Computation -----' + #13#10);
 
     compiler := CreateCompiler;
+
     if
       not compiler.Compile(CMultiProcCode)
     then
       Writeln('Compilation/codegen error: ' + (compiler as IErrorInfo).ErrorInfo)
     else begin
       exec := compiler.__Code;
+
       if
         exec.Call('mult', [5,3], res)
       then
@@ -161,6 +163,7 @@ begin
       interpreter := CreateInterpreter(compiler.__AST);
       time := DSiTimeGetTime64;
       res := 0;
+
       if
         not interpreter.Call('fib', [30], res)
       then
