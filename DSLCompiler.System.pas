@@ -6,6 +6,8 @@ interface
 
 type
 
+  {: Abstract base class for all TCodegen objects. Implements IInterface and
+     optional reference counting. }
   TDSLObject = class(TObject, IInterface)
   private
     {$IFDEF REFERENCE_COUNTING}
