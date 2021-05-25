@@ -4,7 +4,7 @@ unit DSLCompiler;
 ///
 /// program = {function}
 ///
-/// function = identifier "(" [ identifier { "," identifier } ] ")" block
+/// function = identifier "(" [identifier {"," identifier}] ")" block
 ///
 /// block = "{" statement {";" statement} [";"] "}"
 ///
@@ -24,7 +24,7 @@ unit DSLCompiler;
 ///
 /// operator = "+" | "-" | "<"
 ///
-/// function_call = identifier "(" [expression { "," expression } ] ")"
+/// function_call = identifier "(" [expression {"," expression}] ")"
 ///
 /// - Spacing is ignored.
 /// - Only data type is integer.
