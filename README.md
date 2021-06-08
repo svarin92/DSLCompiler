@@ -1,5 +1,5 @@
 # DSLCompiler
-Some small adaptations and enhancements to the Primož Gabrijelčič compiler - alias gabr42 - which can now be run from Lazarus IDE and Free Pascal.
+Some small adaptations and enhancements to the Primož Gabrijelčič compiler - alias gabr42 - which can now be run from Lazarus IDE and Free Pascal Compiler (FPC).
 
 A must See:
 
