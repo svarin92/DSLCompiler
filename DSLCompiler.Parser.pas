@@ -52,36 +52,36 @@ type
     fLookaheadToken: TTokenKind;
     fLookaheadIdent: string;
   strict protected
-    function  FetchToken(
+    function FetchToken(
       allowed: TTokenKinds; 
       var ident: string; 
       var token: TTokenKind
       ): Boolean; overload;
-    function  FetchToken(
+    function FetchToken(
       allowed: TTokenKinds; 
       var ident: string
       ): Boolean; overload; inline;
-    function  FetchToken(allowed: TTokenKinds): Boolean; overload; inline;
-    function  GetToken(
+    function FetchToken(allowed: TTokenKinds): Boolean; overload; inline;
+    function GetToken(
       var token: TTokenKind; 
       var ident: string
       ): Boolean;
-    function  IsFunction(
+    function IsFunction(
       const Ident: string; 
       var funcIdx: Integer
       ): Boolean;
-    function  IsVariable(
+    function IsVariable(
       const Ident: string; 
       var varIdx: Integer
       ): Boolean;
-    function  ParseBlock(var block: IASTBlock): Boolean;
-    function  ParseExpression(var expression: IASTExpression): Boolean;
-    function  ParseExpresionList(parameters: TExpressionList): Boolean;
-    function  ParseFunction: Boolean;
-    function  ParseReturn(var statement: IASTStatement): Boolean;
-    function  ParseIf(var statement: IASTStatement): Boolean;
-    function  ParseStatement(var statement: IASTStatement): Boolean;
-    function  ParseTerm(var term: IASTTerm): Boolean;
+    function ParseBlock(var block: IASTBlock): Boolean;
+    function ParseExpression(var expression: IASTExpression): Boolean;
+    function ParseExpresionList(parameters: TExpressionList): Boolean;
+    function ParseFunction: Boolean;
+    function ParseReturn(var statement: IASTStatement): Boolean;
+    function ParseIf(var statement: IASTStatement): Boolean;
+    function ParseStatement(var statement: IASTStatement): Boolean;
+    function ParseTerm(var term: IASTTerm): Boolean;
     procedure PushBack(
       token: TTokenKind; 
       const Ident: string
@@ -275,7 +275,7 @@ var
 begin
   Result := False;
 
-  /// "(" [expression { "," expression } ] ")"
+  /// "(" [expression {"," expression}] ")"
 
   if not FetchToken([tkLeftParen]) then Exit;
 
@@ -326,7 +326,7 @@ begin
   /// expression = term
   ///            | term operator term
   ///
-  /// operator = "+" | "-" | "<"
+  /// operator = "+" | "-" | "*" | "<"
 
   _expr := __AST.CreateExpression;
 
@@ -335,7 +335,7 @@ begin
   _expr.__Term1 := _term;
 
   if 
-    not FetchToken([tkLessThan, tkPlus, tkMinus], _ident, _token) 
+    not FetchToken([tkLessThan, tkPlus, tkMinus, tkAsterisk], _ident, _token) 
   then begin
     PushBack(_token, _ident);
     _expr.__BinaryOp := opNone;
@@ -346,6 +346,7 @@ begin
       tkLessThan: _expr.__BinaryOp := opCompareLess;
       tkPlus    : _expr.__BinaryOp := opAdd;
       tkMinus   : _expr.__BinaryOp := opSubtract;
+      tkAsterisk: _expr.__BinaryOp := opMult;
       else 
         raise Exception.Create('TParser.ParseExpression: Unexpected token');
     end;
@@ -370,7 +371,7 @@ var
 begin
   Result := False;
 
-  /// function = identifier "(" [ identifier { "," identifier } ] ")" block
+  /// function = identifier "(" [identifier { "," identifier }] ")" block
 
   // function name
   if not FetchToken([tkIdent], _funcName, _token) then Exit(_token = tkEOF);
