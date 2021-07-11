@@ -22,7 +22,7 @@ unit DSLCompiler;
 ///      | function_call
 ///      | identifier
 ///
-/// operator = "+" | "-" | "<"
+/// operator = "+" | "-" | "*" | "<"
 ///
 /// function_call = identifier "(" [expression {"," expression}] ")"
 ///
@@ -69,20 +69,20 @@ type
 
   ICompiler = interface 
   ['{7CF78EC7-023B-4571-B310-42873921B0BC}']
-    function  GetAST: IAST;
-    function  GetASTFactory: TASTFactory;
-    function  GetCode: IProgram;
-    function  GetCodegenFactory: TCodegenFactory;
-    function  GetParserFactory: TParserFactory;
-    function  GetTokenizerFactory: TTokenizerFactory;
+    function GetAST: IAST;
+    function GetASTFactory: TASTFactory;
+    function GetCode: IProgram;
+    function GetCodegenFactory: TCodegenFactory;
+    function GetParserFactory: TParserFactory;
+    function GetTokenizerFactory: TTokenizerFactory;
     procedure SetASTFactory(const Value: TASTFactory);
     procedure SetCodegenFactory(const Value: TCodegenFactory);
     procedure SetParserFactory(const Value: TParserFactory);
     procedure SetTokenizerFactory(const Value: TTokenizerFactory);
   //
-    function  Codegen: Boolean;
-    function  Compile(const Code: string): Boolean;
-    function  Parse(const Code: string): Boolean;
+    function Codegen: Boolean;
+    function Compile(const Code: string): Boolean;
+    function Parse(const Code: string): Boolean;
   //
     property __AST: IAST 
       read GetAST;
@@ -123,12 +123,12 @@ type
     fParserFactory   : TParserFactory;
     fTokenizerFactory: TTokenizerFactory;
   strict protected
-    function  GetAST: IAST;
-    function  GetASTFactory: TASTFactory; inline;
-    function  GetCode: IProgram; inline;
-    function  GetCodegenFactory: TCodegenFactory; inline;
-    function  GetParserFactory: TParserFactory; inline;
-    function  GetTokenizerFactory: TTokenizerFactory; inline;
+    function GetAST: IAST;
+    function GetASTFactory: TASTFactory; inline;
+    function GetCode: IProgram; inline;
+    function GetCodegenFactory: TCodegenFactory; inline;
+    function GetParserFactory: TParserFactory; inline;
+    function GetTokenizerFactory: TTokenizerFactory; inline;
     procedure SetASTFactory(const Value: TASTFactory); inline;
     procedure SetCodegenFactory(const Value: TCodegenFactory); inline;
     procedure SetParserFactory(const Value: TParserFactory); inline;
@@ -136,9 +136,9 @@ type
   public
     constructor Create;
   //
-    function  Codegen: Boolean;
-    function  Compile(const Code: string): Boolean;
-    function  Parse(const Code: string): Boolean;
+    function Codegen: Boolean;
+    function Compile(const Code: string): Boolean;
+    function Parse(const Code: string): Boolean;
   //
     property __AST: IAST 
       read GetAST;
