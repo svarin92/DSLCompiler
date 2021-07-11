@@ -49,7 +49,7 @@ power(a,b)
   }
 }
 
------ Syntactic Recognition and Computation -----
+----- Syntactic Recognition with Computation -----
 
 mult(5,3) = 15
 2^10 = 1024
