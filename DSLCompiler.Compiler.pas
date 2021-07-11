@@ -62,7 +62,7 @@ type
   public
     procedure AfterConstruction; override;
     procedure BeforeDestruction; override;
-    function  Call(
+    function Call(
       const functionName: string; 
       const params: TParameters; 
       var return: Integer
@@ -78,36 +78,36 @@ type
   strict private
     fAST: IAST;
   strict protected
-    function  CompileBlock(
+    function CompileBlock(
       const ASTBlock: IASTBlock; 
       var codeBlock: TStatement
       ): Boolean;
-    function  CompileExpression(
+    function CompileExpression(
       const ASTExpression: IASTExpression;
       var codeExpression: TExpression
       ): Boolean;
-    function  CompileFunctionCall(
+    function CompileFunctionCall(
       const ASTFuncCall: IASTTermFunctionCall;
       var codeExpression: TExpression
       ): Boolean;
-    function  CompileIfStatement(
+    function CompileIfStatement(
       const ASTStatement: IASTIfStatement;
       var codeStatement: TStatement
       ): Boolean;
-    function  CompileReturnStatement(
+    function CompileReturnStatement(
       const ASTStatement: IASTReturnStatement;
       var codeStatement: TStatement
       ): Boolean;
-    function  CompileStatement(
+    function CompileStatement(
       const ASTStatement: IASTStatement;
       var codeStatement: TStatement
       ): Boolean;
-    function  CompileTerm(
+    function CompileTerm(
       const ASTTerm: IASTTerm; 
       var codeTerm: TExpression
       ): Boolean;
   public
-    function  Generate(
+    function Generate(
       const AST: IAST; 
       var runnable: IProgram
       ): Boolean;
@@ -243,8 +243,9 @@ begin
     case
       ASTExpression.__BinaryOp
     of
-      opAdd:         codeExpression := TCodegenAdd.CreateDecl(_term1, _term2);
-      opSubtract:    codeExpression := TCodegenSubtract.CreateDecl(_term1, _term2);
+      opAdd        : codeExpression := TCodegenAdd.CreateDecl(_term1, _term2);
+      opSubtract   : codeExpression := TCodegenSubtract.CreateDecl(_term1, _term2);
+      opMult       : codeExpression := TCodegenMult.CreateDecl(_term1, _term2);
       opCompareLess: codeExpression := TCodegenIsLess.CreateDecl(_term1, _term2);
       else           Result := SetError('*** Unexpected operator');
     end;
