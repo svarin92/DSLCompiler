@@ -12,24 +12,35 @@ uses
 
 type
 
-  TTokenKind = (tkUnknown, tkWhitespace,
-                tkIdent, tkNumber,
-                tkLeftParen, tkRightParen,
-                tkLeftCurly, tkRightCurly,
-                tkLeftSquare, tkRightSquare,
-                tkLessThan, tkPlus, tkMinus,
-                tkComma, tkSemicolon,
-                tkEOF);
+  TTokenKind = (
+    tkUnknown, 
+    tkWhitespace,
+    tkIdent, 
+    tkNumber,
+    tkLeftParen, 
+    tkRightParen,
+    tkLeftCurly, 
+    tkRightCurly,
+    tkLeftSquare, 
+    tkRightSquare,
+    tkLessThan, 
+    tkPlus, 
+    tkMinus,
+    tkAsterisk,
+    tkComma, 
+    tkSemicolon,
+    tkEOF
+    );
 
   ITokenizer = interface 
   ['{086E9EFE-DB1E-4D81-A16A-C9F1F0F06D2B}']
-    function  CurrentLocation: TPoint;
-    function  GetToken(
+    function CurrentLocation: TPoint;
+    function GetToken(
       var kind: TTokenKind; 
       var identifier: string
       ): Boolean;
     procedure Initialize(const Code: string);
-    function  IsAtEnd: Boolean;
+    function IsAtEnd: Boolean;
   end; { ITokenizer }
 
   TTokenizerFactory = function: ITokenizer;
@@ -64,16 +75,16 @@ type
   public
     procedure AfterConstruction; override;
     procedure BeforeDestruction; override;
-    function  CurrentLocation: TPoint; inline;
-    function  GetChar(var ch: Char): Boolean;
-    function  GetIdent: string;
-    function  GetNumber: string;
-    function  GetToken(
+    function CurrentLocation: TPoint; inline;
+    function GetChar(var ch: Char): Boolean;
+    function GetIdent: string;
+    function GetNumber: string;
+    function GetToken(
       var kind: TTokenKind; 
       var identifier: string
       ): Boolean;
     procedure Initialize(const Code: string);
-    function  IsAtEnd: Boolean;
+    function IsAtEnd: Boolean;
   end; { TTokenizer }
 
 { exports }
@@ -205,6 +216,7 @@ begin
     ']': kind := tkRightSquare;
     '+': kind := tkPlus;
     '-': kind := tkMinus;
+    '*': kind := tkAsterisk;
     '<': kind := tkLessThan;
     ',': kind := tkComma;
     ';': kind := tkSemicolon;
