@@ -60,7 +60,7 @@ type
     procedure WritelnText(const S: string = '');
   public
     constructor Create(dump: TStringList);
-    function  Generate(
+    function Generate(
       const AST: IAST; 
       var runnable: IProgram
       ): Boolean;
