@@ -58,7 +58,7 @@ fib(7) (compiled) = 13
 
 ----- Elapsed runtime: fib(30) -----
 
-Native: 832040 in 0 ms
+Native: 832040 in 16 ms
 Compiled: 832040 in 344 ms
 Interpreted: 832040 in 2312 ms
 ```
