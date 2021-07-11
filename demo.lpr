@@ -43,11 +43,18 @@ const
     '  }                               '#13#10 +
     '}                                 '#13#10 +
     '                                  '#13#10 +
+    // 'fact(i) {                         '#13#10 +
+    // '  if i <= 0 {                     '#13#10 +
+    // '    return 1                      '#13#10 +
+    // '  } else {                        '#13#10 +
+    // '    return mult(i, fact(i-1))     '#13#10 +
+    // '  }                               '#13#10 +
+    // '}                                 '#13#10 +
+    // '                                  '#13#10 +
     'power(a,b) {                      '#13#10 +
     '  if b < 2 {                      '#13#10 +
     '    return a                      '#13#10 +
-    '  }                               '#13#10 +
-    '  else {                          '#13#10 +
+    '  } else {                        '#13#10 +
     '    return mult(power(a, b-1), a) '#13#10 +
     '  }                               '#13#10 +
     '}                                 '#13#10;
@@ -61,8 +68,7 @@ threadvar
 
 {: 64-bit extension of MM timeGetTime. Time units are milliseconds.
    @author  gabr
-   @since   2007-11-26
-}
+   @since   2007-11-26. }
 function DSiTimeGetTime64: Int64;
 begin
   Result := GetTickCount64; // timeGetTime
@@ -122,7 +128,7 @@ begin
       FreeAndNil(sl);
     end;
 
-    Writeln('----- Syntactic Recognition and Computation -----' + #13#10);
+    Writeln('----- Syntactic Recognition with Computation -----' + #13#10);
 
     compiler := CreateCompiler;
 
@@ -142,6 +148,9 @@ begin
 
       exec.Call('power', [2,10], res);
       Writeln('2^10 = ', res);
+
+      // exec.Call('fact', [5], res);
+      // Writeln('5! = ', res);
 
       Writeln('fib(7) (native) = ', fib(7));
       exec.Call('fib', [7], res);
