@@ -13,7 +13,7 @@ type
 
   TASTStatementType = (stIf, stReturn);
   TASTTermType = (termConstant, termVariable, termFunctionCall);
-  TBinaryOperation = (opNone, opAdd, opSubtract, opCompareLess);
+  TBinaryOperation = (opNone, opAdd, opSubtract, opMult, opCompareLess);
 
   IASTBlock = interface;
   IASTExpression = interface;
@@ -25,7 +25,7 @@ type
 
   IASTTermConstant = interface(IASTTerm) 
   ['{737340F5-E605-4480-BE6E-DA56FAA34104}']
-    function  GetValue: Integer;
+    function GetValue: Integer;
     procedure SetValue(const Value: Integer);
   //
     property __Value: Integer 
@@ -35,7 +35,7 @@ type
 
   IASTTermVariable = interface(IASTTerm) 
   ['{933DCB5B-6C73-44C2-BEAF-D8E16EF8134C}']
-    function  GetVariableIdx: Integer;
+    function GetVariableIdx: Integer;
     procedure SetVariableIdx(const Value: Integer);
   //
     property __VariableIdx: Integer 
@@ -47,8 +47,8 @@ type
 
   IASTTermFunctionCall = interface(IASTTerm) 
   ['{09F0FACF-4A6C-4E59-91C8-5104C560D36C}']
-    function  GetFunctionIdx: Integer;
-    function  GetParameters: TExpressionList;
+    function GetFunctionIdx: Integer;
+    function GetParameters: TExpressionList;
     procedure SetFunctionIdx(const Value: Integer);
   //
     property __FunctionIdx: Integer 
@@ -60,9 +60,9 @@ type
 
   IASTExpression = interface 
   ['{086BECB3-C733-4875-ABE0-EE71DCC0011D}']
-    function  GetBinaryOp: TBinaryOperation;
-    function  GetTerm1: IASTTerm;
-    function  GetTerm2: IASTTerm;
+    function GetBinaryOp: TBinaryOperation;
+    function GetTerm1: IASTTerm;
+    function GetTerm2: IASTTerm;
     procedure SetBinaryOp(const Value: TBinaryOperation);
     procedure SetTerm1(const Value: IASTTerm);
     procedure SetTerm2(const Value: IASTTerm);
@@ -85,9 +85,9 @@ type
 
   IASTIfStatement = interface(IASTStatement) 
   ['{A6BE8E87-39EC-4832-9F4A-D5BF0901DA17}']
-    function  GetCondition: IASTExpression;
-    function  GetElseBlock: IASTBlock;
-    function  GetThenBlock: IASTBlock;
+    function GetCondition: IASTExpression;
+    function GetElseBlock: IASTBlock;
+    function GetThenBlock: IASTBlock;
     procedure SetCondition(const Value: IASTExpression);
     procedure SetElseBlock(const Value: IASTBlock);
     procedure SetThenBlock(const Value: IASTBlock);
@@ -105,7 +105,7 @@ type
 
   IASTReturnStatement = interface(IASTStatement) 
   ['{61F7403E-CB08-43FC-AF37-A96B05BB2F9C}']
-    function  GetExpression: IASTExpression;
+    function GetExpression: IASTExpression;
     procedure SetExpression(const Value: IASTExpression);
   //
     property __Expression: IASTExpression 
@@ -117,7 +117,7 @@ type
 
   IASTBlock = interface 
   ['{450D40D0-4866-4CD2-98E8-88387F5B9904}']
-    function  GetStatements: TStatementList;
+    function GetStatements: TStatementList;
   //
     property __Statements: TStatementList 
       read GetStatements;
@@ -127,9 +127,9 @@ type
 
   IASTFunction = interface 
   ['{FA4F603A-FE89-40D4-8F96-5607E4EBE511}']
-    function  GetBody: IASTBlock;
-    function  GetName: string;
-    function  GetParamNames: TParameterList;
+    function GetBody: IASTBlock;
+    function GetName: string;
+    function GetParamNames: TParameterList;
     procedure SetBody(const Value: IASTBlock);
     procedure SetName(const Value: string);
   //
@@ -145,22 +145,22 @@ type
 
   IASTFunctions = interface 
   ['{95A0897F-ED13-40F5-B955-9917AC911EDB}']
-    function  GetItems(idxFunction: Integer): IASTFunction;
-  //
-    function  Add(const Func: IASTFunction): Integer;
-    function  Count: Integer;
-    function  IndexOf(const Name: string): Integer;
-    property Items[idxFunction: Integer]: IASTFunction 
+    function GetItems(idxFunction: Integer): IASTFunction;
+    function Add(const Func: IASTFunction): Integer;
+    function Count: Integer;
+    function IndexOf(const Name: string): Integer;
+  //  
+    property __Items[idxFunction: Integer]: IASTFunction 
       read GetItems; default;
   end; { IASTFunctions }
 
   IASTFactory = interface 
   ['{1284482C-CA38-4D9B-A84A-B2BAED9CC8E2}']
-    function  CreateBlock: IASTBlock;
-    function  CreateExpression: IASTExpression;
-    function  CreateFunction: IASTFunction;
-    function  CreateStatement(statementType: TASTStatementType): IASTStatement;
-    function  CreateTerm(termType: TASTTermType): IASTTerm;
+    function CreateBlock: IASTBlock;
+    function CreateExpression: IASTExpression;
+    function CreateFunction: IASTFunction;
+    function CreateStatement(statementType: TASTStatementType): IASTStatement;
+    function CreateTerm(termType: TASTTermType): IASTTerm;
   end; { IASTFactory }
 
   IAST = interface(IASTFactory) 
@@ -192,7 +192,7 @@ type
   strict private
     fValue: Integer;
   strict protected
-    function  GetValue: Integer; inline;
+    function GetValue: Integer; inline;
     procedure SetValue(const Value: Integer); inline;
   public
     property __Value: Integer 
@@ -204,7 +204,7 @@ type
   strict private
     fVariableIdx: Integer;
   strict protected
-    function  GetVariableIdx: Integer; inline;
+    function GetVariableIdx: Integer; inline;
     procedure SetVariableIdx(const Value: Integer); inline;
   public
     property __VariableIdx: Integer 
@@ -217,8 +217,8 @@ type
     fFunctionIdx: Integer;
     fParameters : TExpressionList;
   strict protected
-    function  GetFunctionIdx: Integer; inline;
-    function  GetParameters: TExpressionList; inline;
+    function GetFunctionIdx: Integer; inline;
+    function GetParameters: TExpressionList; inline;
     procedure SetFunctionIdx(const Value: Integer); inline;
   public
     procedure AfterConstruction; override;
@@ -237,9 +237,9 @@ type
     fTerm1   : IASTTerm;
     fTerm2   : IASTTerm;
   strict protected
-    function  GetBinaryOp: TBinaryOperation; inline;
-    function  GetTerm1: IASTTerm; inline;
-    function  GetTerm2: IASTTerm; inline;
+    function GetBinaryOp: TBinaryOperation; inline;
+    function GetTerm1: IASTTerm; inline;
+    function GetTerm2: IASTTerm; inline;
     procedure SetBinaryOp(const Value: TBinaryOperation); inline;
     procedure SetTerm1(const Value: IASTTerm); inline;
     procedure SetTerm2(const Value: IASTTerm); inline;
@@ -265,9 +265,9 @@ type
     fElseBlock: IASTBlock;
     fThenBlock: IASTBlock;
   strict protected
-    function  GetCondition: IASTExpression; inline;
-    function  GetElseBlock: IASTBlock; inline;
-    function  GetThenBlock: IASTBlock; inline;
+    function GetCondition: IASTExpression; inline;
+    function GetElseBlock: IASTBlock; inline;
+    function GetThenBlock: IASTBlock; inline;
     procedure SetCondition(const Value: IASTExpression); inline;
     procedure SetElseBlock(const Value: IASTBlock); inline;
     procedure SetThenBlock(const Value: IASTBlock); inline;
@@ -287,7 +287,7 @@ type
   strict private
     fExpression: IASTExpression;
   strict protected
-    function  GetExpression: IASTExpression; inline;
+    function GetExpression: IASTExpression; inline;
     procedure SetExpression(const Value: IASTExpression); inline;
   public
     property __Expression: IASTExpression
@@ -299,7 +299,7 @@ type
   strict private
     fStatements: TStatementList;
   strict protected
-    function  GetStatements: TStatementList; inline;
+    function GetStatements: TStatementList; inline;
   public
     procedure AfterConstruction; override;
     procedure BeforeDestruction; override;
@@ -314,9 +314,9 @@ type
     fName      : string;
     fParamNames: TParameterList;
   strict protected
-    function  GetBody: IASTBlock;
-    function  GetName: string; inline;
-    function  GetParamNames: TParameterList; inline;
+    function GetBody: IASTBlock;
+    function GetName: string; inline;
+    function GetParamNames: TParameterList; inline;
     procedure SetBody(const Value: IASTBlock); inline;
     procedure SetName(const Value: string); inline;
     procedure SetParamNames(const Value: TParameterList); inline;
@@ -339,13 +339,13 @@ type
   strict private
     fFunctions: specialize TList<IASTFunction>;
   strict protected
-    function  GetItems(idxFunction: Integer): IASTFunction; inline;
+    function GetItems(idxFunction: Integer): IASTFunction; inline;
   public
-    function  Add(const Func: IASTFunction): Integer;
+    function Add(const Func: IASTFunction): Integer;
     procedure AfterConstruction; override;
     procedure BeforeDestruction; override;
-    function  Count: Integer; inline;
-    function  IndexOf(const Name: string): Integer;
+    function Count: Integer; inline;
+    function IndexOf(const Name: string): Integer;
   //
     property __Items[idxFunction: Integer]: IASTFunction 
       read GetItems; default;
@@ -353,11 +353,11 @@ type
 
   TASTMaker = class(TInterfacedObject, IASTFactory)
   public
-    function  CreateBlock: IASTBlock;
-    function  CreateExpression: IASTExpression;
-    function  CreateFunction: IASTFunction;
-    function  CreateStatement(statementType: TASTStatementType): IASTStatement;
-    function  CreateTerm(termType: TASTTermType): IASTTerm;
+    function CreateBlock: IASTBlock;
+    function CreateExpression: IASTExpression;
+    function CreateFunction: IASTFunction;
+    function CreateStatement(statementType: TASTStatementType): IASTStatement;
+    function CreateTerm(termType: TASTTermType): IASTTerm;
   end; { TASTMaker }
 
   TAST = class(TASTMaker, IAST)
