@@ -33,38 +33,38 @@ type
   strict private
     fAST: IAST;
   strict protected
-    function  CallFunction(
+    function CallFunction(
       const Func: IASTFunction; 
       const Params: TParameters;
       var return: Integer
       ): Boolean;
-    function  EvalBlock(
+    function EvalBlock(
       var context: TContext; 
       const Block: IASTBlock
       ): Boolean;
-    function  EvalExpression(
+    function EvalExpression(
       var context: TContext; 
       const Expression: IASTExpression; 
       var value: Integer): 
       Boolean;
-    function  EvalFunctionCall(
+    function EvalFunctionCall(
       var context: TContext; 
       const functionCall: IASTTermFunctionCall; 
       var value: Integer
       ): Boolean;
-    function  EvalIfStatement(
+    function EvalIfStatement(
       var context: TContext; 
       const Statement: IASTIfStatement
       ): Boolean;
-    function  EvalReturnStatement(
+    function EvalReturnStatement(
       var context: TContext; 
       const Statement: IASTReturnStatement
       ): Boolean;
-    function  EvalStatement(
+    function EvalStatement(
       var context: TContext; 
       const Statement: IASTStatement
       ): Boolean;
-    function  EvalTerm(
+    function EvalTerm(
       var context: TContext; 
       const term: IASTTerm; 
       var value: Integer
@@ -72,7 +72,7 @@ type
   public
     constructor Create(const AST: IAST);   
   //
-    function  Call(
+    function Call(
       const FunctionName: string; 
       const Params: TParameters;
       var return: Integer
