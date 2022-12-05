@@ -65,7 +65,4 @@ Interpreted: 832040 in 2312 ms
 
 ***
 
-#### draft compilation process
-
-![Compiler process](url /svarin92/DSLCompiler/doc/dslcompiler.png?raw=true "Draft compiler process")
-<img src="/svarin92/DSLCompiler/doc/dslcompiler.png" alt="Compiler process" title="Draft compiler process">
+#### Draft compilation process
