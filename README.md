@@ -67,4 +67,4 @@ Interpreted: 832040 in 2312 ms
 
 #### draft compilation process
 
-**(https://github.com/svarin92/DSLCompiler/doc/dslcompiler.png)**
+**https://github.com/svarin92/DSLCompiler/doc/dslcompiler.png**
