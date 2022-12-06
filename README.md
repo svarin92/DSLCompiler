@@ -66,3 +66,4 @@ Interpreted: 832040 in 2312 ms
 ***
 
 #### Draft compilation process
+![Compilation process](/docs/assets/dslCompiler.png "Draft compilation process")
