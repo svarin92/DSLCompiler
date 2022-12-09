@@ -7,8 +7,8 @@ interface
 uses
 
   // dsl compiler
-  DSLCompiler.Base,
-  DSLCompiler.Runnable;
+  DSLCompiler.Runnable,
+  DSLCompiler.Thing;
 
 type
 
@@ -34,7 +34,7 @@ type
   TStatements = specialize TArray<TStatement>;
   TFuncCallParams = specialize TArray<TExpression>;
 
-  TCodegenAdd = class(TPragma)
+  TCodegenAdd = class(TThing)
   strict private
     _Expr1, _Expr2: TExpression;
   public
@@ -44,7 +44,7 @@ type
     class function CreateDecl(const Expr1, Expr2: TExpression): TExpression; 
   end; { TCodegenAdd }
 
-  TCodegenMult = class(TPragma)
+  TCodegenMult = class(TThing)
   strict private
     _Expr1, _Expr2: TExpression;
   public
@@ -54,7 +54,7 @@ type
     class function CreateDecl(const Expr1, Expr2: TExpression): TExpression; 
   end; { TCodegenMult }
 
-  TCodegenBlock = class(TPragma)
+  TCodegenBlock = class(TThing)
   strict private
     _Statements: TStatements;
   public
@@ -64,7 +64,7 @@ type
     class function CreateDecl(const Statements: TStatements): TStatement;
   end; { TCodegenBlock }
 
-  TCodegenConstant = class(TPragma)
+  TCodegenConstant = class(TThing)
   strict private
     _Value: Integer;
   public
@@ -74,7 +74,7 @@ type
     class function CreateDecl(value: Integer): TExpression;
   end; { TCodegenConstant }
 
-  TCodegenFunctionCall = class(TPragma)
+  TCodegenFunctionCall = class(TThing)
   strict private
     _FuncIndex: Integer;
     _Params: TFuncCallParams;
@@ -91,7 +91,7 @@ type
       ): TExpression;      
   end; { TCodegenFunctionCall }
 
-  TCodegenIfStatement = class(TPragma)
+  TCodegenIfStatement = class(TThing)
   strict private
     _Condition: TExpression;
     _ThenBlock, _ElseBlock: TStatement;
@@ -108,7 +108,7 @@ type
       ): TStatement;
   end; { TCodegenIfStatement }
 
-  TCodegenIsLess = class(TPragma)
+  TCodegenIsLess = class(TThing)
   strict private
     _Expr1, _Expr2: TExpression;
   public
@@ -118,7 +118,7 @@ type
     class function CreateDecl(const Expr1, Expr2: TExpression): TExpression;
   end; { TCodegenIsLess }
 
-  TCodegenReturnStatement = class(TPragma)
+  TCodegenReturnStatement = class(TThing)
   strict private
     _Expression: TExpression;
   public
@@ -128,7 +128,7 @@ type
     class function CreateDecl(const Expression: TExpression): TStatement;
   end; { TCodegenReturnStatement }
 
-  TCodegenSubtract = class(TPragma)
+  TCodegenSubtract = class(TThing)
   strict private
     _Expr1, _Expr2: TExpression;
   public
@@ -138,7 +138,7 @@ type
     class function CreateDecl(const Expr1, Expr2: TExpression): TExpression;
   end; { TCodegenSubtract }
 
-  TCodegenVariable = class(TPragma)
+  TCodegenVariable = class(TThing)
   strict private
     _VarIndex: Integer;
   public
@@ -148,7 +148,7 @@ type
     class function CreateDecl(varIndex: Integer): TExpression;
   end; { TCodegenVariable }
 
-  TCodegenFunction = class(TPragma)
+  TCodegenFunction = class(TThing)
   strict private
     _Block: TStatement;
   public
